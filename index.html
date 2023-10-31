@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>quotes-Generator</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin:  0;
+      padding: 0;
+    }
+    body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f7f7f7;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p id="quote"></p>
+  </div>
+  <button id="qoutebtn"  >Get Quote</button>
+
+  <script>
+
+     const quotes = [
+     "The only way to do great work is to love what you do. - Steve Jobs",
+    "In the middle of every difficulty lies opportunity. - Albert Einstein",
+    "Believe you can and you're halfway there. - Theodore Roosevelt",
+    "The best way to predict the future is to invent it. - Alan Kay",
+    "It does not matter how slowly you go as long as you do not stop. - Confucius"
+     ]
+
+     function randomQuote () {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+    return quotes[randomIndex];
+     }
+
+     function displayQuote () {
+      const qouteElement = document.getElementById('quote');
+      qouteElement.textContent = randomQuote () ;
+     }
+     const getQuote = document.getElementById('qoutebtn');
+     getQuote.addEventListener('click', displayQuote )
+
+     window.addEventListener("load", displayQuote);
+  </script>
+</body>
+</html>
